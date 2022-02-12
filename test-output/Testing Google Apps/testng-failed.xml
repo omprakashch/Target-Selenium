@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Testing Google Apps]">
+  <test name="Regression(failed)">
+    <classes>
+      <class name="com.target.qa.testcases.HomePageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verifyLoginFunctionality"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.target.qa.testcases.HomePageTest -->
+    </classes>
+  </test> <!-- Regression(failed) -->
+</suite> <!-- Failed suite [Testing Google Apps] -->

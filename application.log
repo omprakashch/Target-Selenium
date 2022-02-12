@@ -1,0 +1,16 @@
+2022-02-12 23:50:15,719  INFO [pool-1-thread-1] TestBase:89 - ***********************StratingTestCaseExecution***********************
+2022-02-12 23:50:20,341  INFO [pool-1-thread-1] TestBase:57 - Launching chrome browser
+2022-02-12 23:50:26,407  INFO [pool-1-thread-1] TestBase:69 - Navigating to url https://www.target.com/
+2022-02-12 23:50:26,976  INFO [pool-1-thread-1] TestBase:89 - ***********************StratingverifyLoginFunctionality***********************
+2022-02-12 23:50:57,617  INFO [pool-1-thread-1] TestBase:99 - ***********************Closing The Browser***********************
+2022-02-12 23:50:57,620  INFO [pool-1-thread-1] TestBase:93 - ***********************EndingTestCaseExecution***********************
+2022-02-12 23:50:58,204 DEBUG [main] cache:45 - Couldn't find template in cache for "Extent.ftl"("en_IN", UTF-8, parsed); will try to load it.
+2022-02-12 23:50:58,207 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent_en_IN.ftl"): Not found
+2022-02-12 23:50:58,211 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2022-02-12 23:50:58,214 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2022-02-12 23:50:58,215 DEBUG [main] cache:45 - Loading template for "Extent.ftl"("en_IN", UTF-8, parsed) from "jar:file:/C:/Users/divya/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
+2022-02-12 23:50:58,815 DEBUG [main] cache:45 - Couldn't find template in cache for "Extent.ftl"("en_IN", UTF-8, parsed); will try to load it.
+2022-02-12 23:50:58,816 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent_en_IN.ftl"): Not found
+2022-02-12 23:50:58,817 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2022-02-12 23:50:58,818 DEBUG [main] cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2022-02-12 23:50:58,819 DEBUG [main] cache:45 - Loading template for "Extent.ftl"("en_IN", UTF-8, parsed) from "jar:file:/C:/Users/divya/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"

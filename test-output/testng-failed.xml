@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Target Application Test Automation Test Suite]" parallel="methods">
+  <listeners>
+    <listener class-name="com.target.qa.util.listeners.ExtentReportListener"/>
+  </listeners>
+  <test name="Target App Test Cases(failed)" parallel="methods">
+    <classes>
+      <class name="com.target.qa.testcases.HomePageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verifyLoginFunctionality"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.target.qa.testcases.HomePageTest -->
+    </classes>
+  </test> <!-- Target App Test Cases(failed) -->
+</suite> <!-- Failed suite [Target Application Test Automation Test Suite] -->
