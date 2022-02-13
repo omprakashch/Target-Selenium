@@ -36,7 +36,7 @@ public class HomePageTest  extends CommonElements{
 		ExecutionEndLog("verifyLoginFunctionality");
 	}
 	
-	/*@Test(description = "Verifying SignIn Option List Test")
+	@Test(description = "Verifying SignIn Option List Test")
 	@Severity(SeverityLevel.NORMAL)
 	@Description("Test Case Description: Verify SignIn Option List Test")
 	@Story("Story Name: To Check SignIn Option List")
@@ -57,7 +57,7 @@ public class HomePageTest  extends CommonElements{
 		HomePage homePage = new HomePage();
 		Assert.assertTrue(homePage.getTrendingItemsList().size()>1, "Trending Items Not Displayed");	
 		ExecutionEndLog("verifyTrendingItemsDisplayed");
-	}*/
+	}
 	/*
 	@DataProvider
 	public Object[][] getTargetTestData(){
