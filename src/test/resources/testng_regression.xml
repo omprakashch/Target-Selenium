@@ -9,7 +9,7 @@
 
 	<test name="Target App Test Cases">
 		<classes>
-			<class name="com.target.qa.testcases.HomePageTest "/>	
+			<class name="com.target.qa.testcases.HomePageTest"/>	
 			<class name="com.target.qa.testcases.ClearancePageTest"/>
 			<class name="com.target.qa.testcases.RedCardExclusivesPageTest"/>
 			<class name="com.target.qa.testcases.TargetCircleOffersPageTest"/>
