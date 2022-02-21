@@ -29,9 +29,10 @@ public class SignInPage extends CommonElements{
 	}
 	
 	public HomePage Login(String userName, String password){
-		enterText(emailInputField,prop.getProperty(userName));
-		enterText(passwordInputField,prop.getProperty(password));
-		click(signInButton);
+		enterText(emailInputField,prop.getProperty(userName),"User Name");
+		enterText(passwordInputField,prop.getProperty(password),"Password");
+		logInfo("Entered User Name "+userName+" and Password "+password);
+		click(signInButton,"signInButton");
 		//click(skipLink);
 		return new HomePage();
 	}

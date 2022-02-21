@@ -31,7 +31,7 @@ public class HomePageTest  extends CommonElements{
 		ExecutionStartLog("verifyLoginFunctionality");
 		HomePage homePage = new HomePage();
 		SignInPage signInPage = homePage.clickSignIn();
-		homePage = signInPage.Login("username", "password");
+		homePage = signInPage.Login("omprakashnaidu.ch965@gmail.com", "Prakash@143");
 		Assert.assertTrue(homePage.getAccountName().contains("om prakash"), "Login Functionality Not Working");
 		ExecutionEndLog("verifyLoginFunctionality");
 	}

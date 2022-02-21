@@ -20,7 +20,7 @@ public class CommonElements extends TestUtil{
 	@FindBy(xpath = "//a[@id='categories'][2]")
 	WebElement Categories;
 	
-	@FindBy(xpath = "//a[@aria-label='deals menu']")
+	@FindBy(xpath = "//a[@aria-label='deals menu' or @aria-label='Deals']")
 	WebElement Deals;
 	
 	@FindBy(xpath = "//a[@id='trending']")
@@ -65,37 +65,32 @@ public class CommonElements extends TestUtil{
 	}
 	
 	public ClearancePage clickClearnce(){
-		click(Deals);
-		jseClick(Clearance);
-		pause(3);
+		click(Deals,"Deals");
+		jseClick(Clearance,"Clearance");
 		return new ClearancePage();
 	}
 	
 	public WeeklyAdPage clickWeeklyAd(){
-		click(Deals);
-		jseClick(WeeklyAd);
-		pause(3);
+		click(Deals,"Deals");
+		jseClick(WeeklyAd,"WeeklyAd");
 		return new WeeklyAdPage();
 	}
 	
 	public TopDealsPage clickTopDeals(){
-		click(Deals);
-		jseClick(TopDeals);
-		pause(3);
+		click(Deals,"Deals");
+		jseClick(TopDeals,"TopDeals");
 		return new TopDealsPage();
 	}
 
 	public RedCardExclusivesPage clickRedCardExclusives(){
-		click(Deals);
-		jseClick(RedCardExclusives);
-		pause(3);
+		click(Deals,"Deals");
+		jseClick(RedCardExclusives,"RedCardExclusives");
 		return new RedCardExclusivesPage();
 	}
 	
 	public TargetCircleOffersPage clickTargetCircleOffers(){
-		click(Deals);
-		jseClick(TargetCircleOffers);
-		pause(3);
+		click(Deals,"Deals");
+		jseClick(TargetCircleOffers,"TargetCircleOffers");
 		return new TargetCircleOffersPage();
 	}
 	

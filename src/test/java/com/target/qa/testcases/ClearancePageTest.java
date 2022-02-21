@@ -30,7 +30,7 @@ public class ClearancePageTest extends CommonElements{
 		ExecutionStartLog("verifyClearanceList");
 		HomePage homePage = new HomePage();
 		ClearancePage clearancePage = homePage.clickClearnce();
-		Assert.assertTrue(clearancePage.getClearanceList().size()==6, "Clearance List is incorrect");
+		Assert.assertTrue(clearancePage.getClearanceList().size()==7, "Clearance List is incorrect");
 		ExecutionEndLog("verifyClearanceList");
 	}
 	
@@ -41,7 +41,7 @@ public class ClearancePageTest extends CommonElements{
 		ClearancePage clearancePage = homePage.clickClearnce();
 		clearancePage.clickBrand();
 		String brandName = clearancePage.getBrandName(2); 
-		clearancePage.SelectBrand(2);
+		clearancePage.clickBrand(2);
 		pause(2);
 		List<WebElement> productList = clearancePage.getProductList();
 		for(int i=1;i<=productList.size();i++){

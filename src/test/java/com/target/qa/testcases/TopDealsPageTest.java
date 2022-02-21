@@ -23,20 +23,20 @@ public class TopDealsPageTest extends CommonElements{
 	}
 	
 	@Test
-	public void verifyDealsOnEveryDayEssentialsSectionDisplayed(){
-		ExecutionStartLog("verifyDealsOnEveryDayEssentialsSectionDisplayed");
+	public void verifyShopMoreDealsSectionDisplayed(){
+		ExecutionStartLog("verifyShopMoreDealsSectionDisplayed");
 		HomePage homePage = new HomePage();
 		TopDealsPage topDealsPage = homePage.clickTopDeals();
-		Assert.assertTrue(topDealsPage.isDealsOnEveryDayEssentialsPresent(), "Deals On Every Day Essentials Section Not Displayed");
-		ExecutionEndLog("verifyDealsOnEveryDayEssentialsSectionDisplayed");
+		Assert.assertTrue(topDealsPage.isShopMoreDealsPresent(), "Shop More Deals Section Not Displayed");
+		ExecutionEndLog("verifyShopMoreDealsSectionDisplayed");
 	}
 	
 	@Test
-	public void verifySavingWaysCount(){
-		ExecutionStartLog("verifySavingWaysCount");
+	public void verifyDealsCount(){
+		ExecutionStartLog("verifyDealsCount");
 		HomePage homePage = new HomePage();
 		TopDealsPage topDealsPage = homePage.clickTopDeals();
-		Assert.assertTrue(topDealsPage.getSavingWays().size()==3, "Saving Ways Count is incorrect");
-		ExecutionEndLog("verifySavingWaysCount");
+		Assert.assertTrue(topDealsPage.getDeals().size()==6, "Deals Count is incorrect");
+		ExecutionEndLog("verifyDealsCount");
 	}
 }

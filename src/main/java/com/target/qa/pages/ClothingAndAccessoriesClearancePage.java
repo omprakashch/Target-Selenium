@@ -17,7 +17,7 @@ public class ClothingAndAccessoriesClearancePage extends CommonElements{
 	}
 	
 	public ClothingAndAccessoriesClearancePage clickSignIn(){
-		click(ClothingAndAccessoriesClearanceLink);
+		click(ClothingAndAccessoriesClearanceLink,"ClothingAndAccessoriesClearanceLink");
 		return new ClothingAndAccessoriesClearancePage();
 	}
 }

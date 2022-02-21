@@ -1,77 +1,63 @@
 package com.target.qa.util.listeners;
 
-import java.io.File;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
 
-import org.testng.IReporter;
-import org.testng.IResultMap;
-import org.testng.ISuite;
-import org.testng.ISuiteResult;
 import org.testng.ITestContext;
+import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.xml.XmlSuite;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.target.qa.base.TestBase;
+import com.target.qa.util.ExtentManager;
+import com.target.qa.util.ExtentTestManager;
+import com.target.qa.util.TestUtil;
 
-public class ExtentReportListener implements IReporter {
-	private ExtentReports extent;
-	public static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
+public class ExtentReportListener implements ITestListener {
 
-	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
-			String outputDirectory) {
-		extent = new ExtentReports(outputDirectory + File.separator
-				+ "Target-Extent.html", true);
 
-		for (ISuite suite : suites) {
-			Map<String, ISuiteResult> result = suite.getResults();
+	public void onStart(ITestContext context) {
+		System.out.println("*** Test Suite " + context.getName() + " started ***");
+	}
 
-			for (ISuiteResult r : result.values()) {
-				ITestContext context = r.getTestContext();
+	public void onFinish(ITestContext context) {
+		System.out.println(("*** Test Suite " + context.getName() + " ending ***"));
+		ExtentTestManager.endTest();
+		ExtentManager.getInstance().flush();
+	}
 
-				buildTestNodes(context.getPassedTests(), LogStatus.PASS);
-				buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
-				buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
-			}
+	public void onTestStart(ITestResult result) {
+		System.out.println(("*** Running test method " + result.getMethod().getMethodName() + "..."));
+		ExtentTestManager.startTest(result.getMethod().getMethodName());
+	}
+
+	public void onTestSuccess(ITestResult result) {
+		System.out.println("*** Executed " + result.getMethod().getMethodName() + " test successfully...");
+		ExtentTestManager.getTest().log(Status.PASS, "Test passed");
+	}
+
+	public void onTestFailure(ITestResult result) {
+		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
+		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+		String screenshotPath = null;
+		try {
+			screenshotPath = TestUtil.takeScreenshotAtEndOfTest();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-		extent.flush();
-		extent.close();
+		ExtentTestManager.getTest().log(Status.FAIL,MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		ExtentTestManager.getTest().log(Status.FAIL, result.getThrowable());
 	}
 
-	private void buildTestNodes(IResultMap tests, LogStatus status) {
-		ExtentTest test;
-
-		if (tests.size() > 0) {
-			for (ITestResult result : tests.getAllResults()) {
-				test = extent.startTest(result.getMethod().getMethodName());
-
-				test.setDescription(result.getClass().getName());
-				test.setStartedTime(getTime(result.getStartMillis()));
-				test.setEndedTime(getTime(result.getEndMillis()));
-
-				for (String group : result.getMethod().getGroups())
-					test.assignCategory(group);
-
-				if (result.getThrowable() != null) {
-					test.log(status, result.getThrowable());
-				} else {
-					test.log(status, "Test " + status.toString().toLowerCase()
-							+ "ed");
-				}
-
-				extent.endTest(test);
-			}
-		}
+	public void onTestSkipped(ITestResult result) {
+		System.out.println("*** Test " + result.getMethod().getMethodName() + " skipped...");
+		ExtentTestManager.getTest().log(Status.SKIP, "Test Skipped");
+		ExtentTestManager.getTest().log(Status.SKIP, result.getThrowable());
 	}
 
-	private Date getTime(long millis) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(millis);
-		return calendar.getTime();
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		System.out.println("*** Test failed but within percentage % " + result.getMethod().getMethodName());
 	}
+
 }

@@ -16,13 +16,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.Status;
 import com.target.qa.base.TestBase;
 
 public class TestUtil extends TestBase{
-
-	public static long PAGE_LOAD_TIMEOUT = 60;
-	public static long IMPLICIT_WAIT = 25;
 	
 	static String currectDir = System.getProperty("user.dir");
 	public static String TESTDATA_SHEET_PATH = currectDir+"/src/main/java/com/target/qa/testdata/TargetTestData.xlsx";
@@ -47,11 +47,16 @@ public class TestUtil extends TestBase{
 	}
 	
 	public void click(String elementPath){
+		WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementPath)));
 		getElement(elementPath).click();
 	}
 	
-	public void click(WebElement element){
+	public void click(WebElement element,String elementName){
+		WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
+		logInfo("Clicked On "+elementName);
 	}
 	
 	public String getText(String elementPath){
@@ -70,12 +75,14 @@ public class TestUtil extends TestBase{
 		return element.getAttribute("value");
 	}
 	
-	public void enterText(String elementPath, String inputText){
+	public void enterText(String elementPath, String inputText,String elementName){
 		getElement(elementPath).sendKeys(inputText);
+		logInfo("Entered "+elementName);
 	}
 	
-	public void enterText(WebElement element, String inputText){
+	public void enterText(WebElement element, String inputText,String elementName){
 		element.sendKeys(inputText);
+		logInfo("Entered "+elementName);
 	}
 	
 	public String getPageTitle(){
@@ -107,14 +114,16 @@ public class TestUtil extends TestBase{
 		}
 	}
 	
-	public void jseClick(String elementPath){
+	public void jseClick(String elementPath,String elementName){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", getElement(elementPath));
+		logInfo("Clicked On "+elementName);
 	}
 	
-	public void jseClick(WebElement element){
+	public void jseClick(WebElement element,String elementName){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
+		logInfo("Clicked On "+elementName);
 	}
 	
 	public boolean isElementPresent(String elementPath){
@@ -164,9 +173,15 @@ public class TestUtil extends TestBase{
 		return data;
 	}
 
-	public void takeScreenshotAtEndOfTest() throws IOException {
+	public static String takeScreenshotAtEndOfTest() throws IOException {
 	File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	String currentDir = System.getProperty("user.dir");
-	FileUtils.copyFile(srcFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));	
+	String destination = currentDir + "/screenshots/" + System.currentTimeMillis() + ".png";
+	FileUtils.copyFile(srcFile, new File(destination));	
+	return destination;
+	}
+	
+	public void logInfo(String info){
+		ExtentTestManager.getTest().log(Status.INFO, info);
 	}
 }

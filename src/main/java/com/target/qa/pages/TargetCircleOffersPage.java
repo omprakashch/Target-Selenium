@@ -10,10 +10,10 @@ import com.target.qa.util.TestUtil;
 
 public class TargetCircleOffersPage extends CommonElements{
 
-	@FindBy(xpath = "//span[contains(text(),'All')]/preceding-sibling::div/div/following-sibling::span")
+	@FindBy(xpath = "//div[contains(text(),'All')]/parent::a//span")
 	WebElement AllCategoriesSelectionMark;
 	
-	@FindBy(xpath = "//ul[@data-test='category-menu']/li")
+	@FindBy(xpath = "//ul[contains(@data-test,'offer-categories')]/li")
 	List<WebElement> CategoriesList;
 	
 	public TargetCircleOffersPage(){

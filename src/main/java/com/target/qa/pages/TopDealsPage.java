@@ -10,22 +10,22 @@ import com.target.qa.util.TestUtil;
 
 public class TopDealsPage extends CommonElements{
 
-	@FindBy(xpath = "//h2[contains(text(),'Deals on everyday essentials')]/../following-sibling::div")
-	WebElement DealsOnEveryDayEssentialsSection;
+	@FindBy(xpath = "//span[contains(text(),'Shop more deals')]/../../../parent::div[contains(@data-test,'picture')]")
+	WebElement ShopMoreDealsSection;
 	
-	@FindBy(xpath = "//span[contains(text(),'More ways to save')]/../../following-sibling::ul/li")
-	List<WebElement> SavingWays;
+	@FindBy(xpath = "//div[@data-test='filmstrip']//ul/li/a[contains(@class,'Link')]")
+	List<WebElement> Deals;
 	
 	public TopDealsPage(){
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean isDealsOnEveryDayEssentialsPresent() {
-		return isElementPresent(DealsOnEveryDayEssentialsSection);
+	public boolean isShopMoreDealsPresent() {
+		return isElementPresent(ShopMoreDealsSection);
 	}
 
-	public List<WebElement> getSavingWays() {
-		return SavingWays;
+	public List<WebElement> getDeals() {
+		return Deals;
 	}
 
 }

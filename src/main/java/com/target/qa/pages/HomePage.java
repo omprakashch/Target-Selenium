@@ -16,7 +16,7 @@ public class HomePage extends CommonElements{
 	@FindBy(xpath = "//span[contains(text(),'Sign in')]")
 	WebElement SignInIcon;
 	
-	@FindBy(xpath = "//div[contains(text(),'Sign in')]")
+	@FindBy(xpath = "//span[contains(text(),'Sign in')]/parent::a")
 	WebElement SignInLink;
 	
 	@FindBy(xpath = "//span[contains(text(),'my account')]/following-sibling::span")
@@ -32,15 +32,14 @@ public class HomePage extends CommonElements{
 	
 	@Step("login with username: {0} and password: {1} step... ")
 	public SignInPage clickSignIn(){
-		click(SignInIcon);
-		jseClick(SignInLink);
+		clickSignInIcon();
+		jseClick(SignInLink,"SignInLink");
 		return new SignInPage();
 	}
 	
 	@Step("click on signin icon step... ")
 	public void clickSignInIcon(){
-		System.out.println("SignInIcon "+SignInIcon);
-		click(SignInIcon);
+		click(SignInIcon,"SignInIcon");
 	}
 	
 	public String getAccountName(){

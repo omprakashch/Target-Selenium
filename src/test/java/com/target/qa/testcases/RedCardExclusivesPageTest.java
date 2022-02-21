@@ -18,6 +18,7 @@ public class RedCardExclusivesPageTest extends CommonElements{
 		ExecutionStartLog("verifyRedCardExclusivesPageDisplayed");
 		HomePage homePage = new HomePage();
 		RedCardExclusivesPage redcardExclusivesPage = homePage.clickRedCardExclusives();
+		logInfo("Title : "+redcardExclusivesPage.getPageTitle());
 		Assert.assertTrue(redcardExclusivesPage.getPageTitle().contains("RedCard :"), "RedCardExclusives Link on Deals Not Working");
 		ExecutionEndLog("verifyRedCardExclusivesPageDisplayed");
 	}

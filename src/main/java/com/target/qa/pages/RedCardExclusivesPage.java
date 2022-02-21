@@ -13,7 +13,7 @@ public class RedCardExclusivesPage extends CommonElements{
 	@FindBy(xpath = "//h2[contains(text(),'Credit Card payment')]/../../following-sibling::div[1]/div")
 	List<WebElement> CreditCardPaymentOptions;
 	
-	@FindBy(xpath = "//div[contains(@class,'AcquisitionOffer')]/following-sibling::div[@role='list']//a")
+	@FindBy(xpath = "//div[contains(text(),'In store & online.')]/../../../../following-sibling::div[contains(@role,'list')]//div[contains(@role,'listitem')]//a")
 	List<WebElement> CardApplyingOptions;
 	
 	

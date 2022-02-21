@@ -40,7 +40,7 @@ public class ClearancePage extends CommonElements{
 	}
 	
 	public ClothingAndAccessoriesClearancePage clickClothingAndAccessoriesClearance(){
-		click(ClothingAndAccessoriesClearanceLink);
+		click(ClothingAndAccessoriesClearanceLink,"ClothingAndAccessoriesClearanceLink");
 		return new ClothingAndAccessoriesClearancePage();
 	}
 
@@ -49,11 +49,11 @@ public class ClearancePage extends CommonElements{
 	}
 	
 	public void clickBrand(){
-		click(BrandLink);
+		click(BrandLink,"BrandLink");
 	}
 	
-	public void SelectBrand(int option){
-		jseClick(BrandOption1+option+BrandOption2);
+	public void clickBrand(int option){
+		jseClick(BrandOption1+option+BrandOption2,"Brand");
 	}
 	
 	public String getBrandName(int option){

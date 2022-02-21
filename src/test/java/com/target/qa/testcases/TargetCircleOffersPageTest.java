@@ -37,7 +37,7 @@ public class TargetCircleOffersPageTest extends CommonElements{
 		ExecutionStartLog("verifyAllCategoriesDisplayed");
 		HomePage homePage = new HomePage();
 		TargetCircleOffersPage targetCircleOffersPage = homePage.clickTargetCircleOffers();
-		Assert.assertTrue(targetCircleOffersPage.getCategoriesList().size()==14, "All the Categories Not Displayed");
+		Assert.assertTrue(targetCircleOffersPage.getCategoriesList().size()==12, "All the Categories Not Displayed");
 		ExecutionEndLog("verifyAllCategoriesDisplayed");
 	}
 }

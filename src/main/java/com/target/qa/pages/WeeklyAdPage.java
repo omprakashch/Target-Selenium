@@ -10,7 +10,7 @@ import com.target.qa.util.TestUtil;
 
 public class WeeklyAdPage extends CommonElements{
 
-	@FindBy(xpath = "//h2[contains(text(),'Deals on everyday essentials')]/../following-sibling::div")
+	@FindBy(xpath = "//h3[contains(text(),'Weekly Ads & Catalogs')]")
 	WebElement WeeklyAdsAndCatalogsSection;
 	
 	@FindBy(xpath = "//button[contains(text(),'View the Weekly Ad')]")
